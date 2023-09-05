@@ -194,7 +194,7 @@ function validateForm() {
     delivery__form__firstName__error_mobile.classList.add('span__visibility__visible');
     firstNameInput.classList.add('error-red');
     const el = document.getElementById('recipient');
-    el.scrollIntoView();
+    el.scrollIntoView({ behavior: "smooth" });
   } else {
     delivery__form__firstName_error.classList.remove('span__visibility__visible');
     delivery__form__firstName__error_mobile.classList.remove('span__visibility__visible');
@@ -205,7 +205,7 @@ function validateForm() {
     delivery__form__lastName_error.classList.add('span__visibility__visible');
     lastNameInput.classList.add('error-red');
     const el = document.getElementById('recipient');
-    el.scrollIntoView();
+    el.scrollIntoView({ behavior: "smooth" });
   } else {
     delivery__form__lastName_error.classList.remove('span__visibility__visible');
     lastNameInput.classList.remove('error-red');
@@ -216,7 +216,7 @@ function validateForm() {
     delivery__form__email__error_mobile.classList.add('span__visibility__visible');
     emailInput.classList.add('error-red');
     const el = document.getElementById('recipient');
-    el.scrollIntoView();
+    el.scrollIntoView({ behavior: "smooth" });
   } else {
     delivery__form__email_error.classList.remove('span__visibility__visible');
     delivery__form__email__error_mobile.classList.remove('span__visibility__visible');
@@ -228,7 +228,7 @@ function validateForm() {
     delivery__form__phone__error_mobile.classList.add('span__visibility__visible');
     phoneInput.classList.add('error-red');
     const el = document.getElementById('recipient');
-    el.scrollIntoView();
+    el.scrollIntoView({ behavior: "smooth" });
   } else {
     delivery__form__phone_error.classList.remove('span__visibility__visible');
     delivery__form__phone__error_mobile.classList.remove('span__visibility__visible');
@@ -239,7 +239,7 @@ function validateForm() {
     delivery__form__inn_error.classList.add('span__visibility__visible');
     innInput.classList.add('error-red');
     const el = document.getElementById('recipient');
-    el.scrollIntoView();
+    el.scrollIntoView({ behavior: "smooth" });
   } else {
     delivery__form__inn_error.classList.remove('span__visibility__visible');
     innInput.classList.remove('error-red');
