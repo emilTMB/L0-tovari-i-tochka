@@ -169,9 +169,7 @@ resultElement__del.textContent = sum;
             }
         }
 
-        resultElement__delivery__mini__f.textContent = number4;
-        resultElement__delivery__mini__ch.textContent = number5;
-        resultElement__delivery__mini__ch2.textContent = number5;
+
         resultElement__delivery__mini__k.textContent = number6;
 
         checkbox1.addEventListener('change', function () {

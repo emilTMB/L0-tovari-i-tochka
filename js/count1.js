@@ -8,7 +8,6 @@ countContainers__f.forEach((container, index) => {
     const plusButton = container.querySelector('.plus');
     const countProductSpan = container.querySelector('.count__product');
 
-    // const basket__buy__price__present = container.querySelector('.basket__buy__price__present-item')
     let count__product = 1;
 
     let totalPrice__f;
@@ -145,9 +144,6 @@ countContainers__f.forEach((container, index) => {
         let number4 = parseInt(text4, 10);
         let number5 = parseInt(text5, 10);
         let number6 = parseInt(text6, 10);
-        // let number7 = parseInt(text7, 10);
-        // let number8 = parseInt(text8, 10);
-        // let number9 = parseInt(text9, 10);
 
         function calculateValueBasket() {
             if (!checkbox1.checked) {
@@ -170,9 +166,6 @@ countContainers__f.forEach((container, index) => {
         }
 
         resultElement__delivery__mini__f.textContent = number4;
-        resultElement__delivery__mini__ch.textContent = number5;
-        resultElement__delivery__mini__ch2.textContent = number5;
-        resultElement__delivery__mini__k.textContent = number6;
 
         checkbox1.addEventListener('change', function () {
             const result = calculateValueBasket();
@@ -197,6 +190,7 @@ countContainers__f.forEach((container, index) => {
         let basket__sum = number4 * value__check__box1 + number5 * value__check__box2 + number6 * value__check__box3;
         resultElement__basket.textContent = basket__sum;
         resultElement__basket__mobile.textContent = basket__sum;
+        
         ///////////////////////////////////////////////////////////////////////////////////////////
         console.log(`Total price for product : ${totalPrice__f}`);
     }
