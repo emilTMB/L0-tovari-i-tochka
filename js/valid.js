@@ -176,9 +176,11 @@ const clearError = (input) => {
     isValid &= validateInput(firstNameInput, (value) => true);
     if (!isValid) {
       delivery__form__firstName_error.classList.add('span__visibility__visible');
+      delivery__form__firstName__error_mobile.classList.add('span__visibility__visible');
       firstNameInput.classList.add('error-red');
     }else {
       delivery__form__firstName_error.classList.remove('span__visibility__visible');
+      delivery__form__firstName__error_mobile.classList.remove('span__visibility__visible');
       firstNameInput.classList.remove('error-red');
     }
     isValid &= validateInput(lastNameInput, (value) => true);
@@ -192,17 +194,21 @@ const clearError = (input) => {
     isValid &= validateInput(emailInput, validateEmail);
     if (!isValid) {
       delivery__form__email_error.classList.add('span__visibility__visible');
+      delivery__form__email__error_mobile.classList.add('span__visibility__visible');
       emailInput.classList.add('error-red');
     }else {
       delivery__form__email_error.classList.remove('span__visibility__visible');
+      delivery__form__email__error_mobile.classList.remove('span__visibility__visible');
       emailInput.classList.remove('error-red');
     }
     isValid &= validateInput(phoneInput, validatePhone);
     if (!isValid) {
       delivery__form__phone_error.classList.add('span__visibility__visible');
+      delivery__form__phone__error_mobile.classList.add('span__visibility__visible');
       phoneInput.classList.add('error-red');
     }else {
       delivery__form__phone_error.classList.remove('span__visibility__visible');
+      delivery__form__phone__error_mobile.classList.remove('span__visibility__visible');
       phoneInput.classList.remove('error-red');
     }
     isValid &= validateInput(innInput, validateInn);

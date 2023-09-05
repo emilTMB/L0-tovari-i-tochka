@@ -1293,6 +1293,8 @@ h2 {
     .delivery__form__firstName-error {
         display: none;
         padding-right: 0;
+        position: relative;
+        right: 105px;
     }
     .delivery__form__email {
         padding-right: 0;
@@ -1309,10 +1311,17 @@ h2 {
     .delivery__form__phone-error {
         display: none;
         padding-right: 0;
+        position: relative;
+        right: 65px;
+    }
+    .delivery__form__lastName-error {
+        margin-left: 0;
     }
     .delivery__form__email-error {
         display: none;
         padding-right: 0;
+        position: relative;
+        right: 70px;
     }
     .display__form__mobile {
         display:block;
