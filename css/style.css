@@ -579,15 +579,19 @@ h2 {
     align-items: flex-end;
 }
 .delivery__point__count__item-a {
-    left: -78px;
+    left: -69px;
     top: -11px;
 }
 .delivery__point__count__item-b {
-    left: -45px;
-    top: -10px;
+    left: -34px;
+    top: -11px;
+}
+.delivery__point__count__item-d {
+    right: 147px;
+    top: -11px;
 }
 .delivery__point__count__item-c {
-    left: -24px;
+    left: -19px;
 }
 .re__delivery__item-a {
     font-family: 'Segoe UI', Tahoma, sans-serif;

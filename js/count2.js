@@ -135,6 +135,11 @@ resultElement__del.textContent = sum;
         let resultElement__basket = document.getElementById("shopping-basketID");
         let resultElement__basket__mobile = document.getElementById("shopping-basketID__mobile");
 
+        let resultElement__delivery__mini__f = document.getElementById("delivery__point__count__item-d");
+        let resultElement__delivery__mini__ch = document.getElementById("delivery__point__count__item-a");
+        let resultElement__delivery__mini__ch2 = document.getElementById("delivery__point__count__item-c");
+        let resultElement__delivery__mini__k = document.getElementById("delivery__point__count__item-b");
+
         let text4 = element4.textContent;
         let text5 = element5.textContent;
         let text6 = element6.textContent;
@@ -166,6 +171,11 @@ resultElement__del.textContent = sum;
                 value__check__box3 = 1;
             }
         }
+
+        resultElement__delivery__mini__f.textContent = number4;
+        resultElement__delivery__mini__ch.textContent = number5;
+        resultElement__delivery__mini__ch2.textContent = number5;
+        resultElement__delivery__mini__k.textContent = number6;
 
         checkbox1.addEventListener('change', function () {
             const result = calculateValueBasket();
