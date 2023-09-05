@@ -156,67 +156,177 @@ const clearError = (input) => {
   }
 };
 
-  const validateInput = (input, validationFunction, errorMessage) => {
-    const value = input.value.trim();
-    if (value === '') {
-      showError(input, errorMessage);
-      return false;
-    } else if (!validationFunction(value)) {
-      showError(input, errorMessage);
-      return false;
-    } else {
-      clearError(input);
-      return true;
-    }
-  };
+const validateInput = (input, validationFunction, errorMessage) => {
+  const value = input.value.trim();
+  if (value === '') {
+    showError(input, errorMessage);
+    return false;
+  } else if (!validationFunction(value)) {
+    showError(input, errorMessage);
+    return false;
+  } else {
+    clearError(input);
+    return true;
+  }
+};
+/////////////////////////////////////////////////////////
+function validateForm() {
+  let isValid = true;
 
-  submitButton.addEventListener('click', () => {
-    let isValid = true;
-  
-    isValid &= validateInput(firstNameInput, (value) => true);
-    if (!isValid) {
-      delivery__form__firstName_error.classList.add('span__visibility__visible');
-      delivery__form__firstName__error_mobile.classList.add('span__visibility__visible');
-      firstNameInput.classList.add('error-red');
-    }else {
-      delivery__form__firstName_error.classList.remove('span__visibility__visible');
-      delivery__form__firstName__error_mobile.classList.remove('span__visibility__visible');
-      firstNameInput.classList.remove('error-red');
-    }
-    isValid &= validateInput(lastNameInput, (value) => true);
-    if (!isValid) {
-      delivery__form__lastName_error.classList.add('span__visibility__visible');
-      lastNameInput.classList.add('error-red');
-    }else {
-      delivery__form__lastName_error.classList.remove('span__visibility__visible');
-      lastNameInput.classList.remove('error-red');
-    }
-    isValid &= validateInput(emailInput, validateEmail);
-    if (!isValid) {
-      delivery__form__email_error.classList.add('span__visibility__visible');
-      delivery__form__email__error_mobile.classList.add('span__visibility__visible');
-      emailInput.classList.add('error-red');
-    }else {
-      delivery__form__email_error.classList.remove('span__visibility__visible');
-      delivery__form__email__error_mobile.classList.remove('span__visibility__visible');
-      emailInput.classList.remove('error-red');
-    }
-    isValid &= validateInput(phoneInput, validatePhone);
-    if (!isValid) {
-      delivery__form__phone_error.classList.add('span__visibility__visible');
-      delivery__form__phone__error_mobile.classList.add('span__visibility__visible');
-      phoneInput.classList.add('error-red');
-    }else {
-      delivery__form__phone_error.classList.remove('span__visibility__visible');
-      delivery__form__phone__error_mobile.classList.remove('span__visibility__visible');
-      phoneInput.classList.remove('error-red');
-    }
-    isValid &= validateInput(innInput, validateInn);
-    if (!isValid) {
-      delivery__form__inn_error.classList.add('span__visibility__visible');
-      innInput.classList.add('error-red');
-    }else {
-      delivery__form__inn_error.classList.remove('span__visibility__visible');
-      innInput.classList.remove('error-red');
-    }
-  });
+  isValid &= validateInput(firstNameInput, (value) => true);
+  if (!isValid) {
+    delivery__form__firstName_error.classList.add('span__visibility__visible');
+    delivery__form__firstName__error_mobile.classList.add('span__visibility__visible');
+    firstNameInput.classList.add('error-red');
+  } else {
+    delivery__form__firstName_error.classList.remove('span__visibility__visible');
+    delivery__form__firstName__error_mobile.classList.remove('span__visibility__visible');
+    firstNameInput.classList.remove('error-red');
+  }
+  isValid &= validateInput(lastNameInput, (value) => true);
+  if (!isValid) {
+    delivery__form__lastName_error.classList.add('span__visibility__visible');
+    lastNameInput.classList.add('error-red');
+  } else {
+    delivery__form__lastName_error.classList.remove('span__visibility__visible');
+    lastNameInput.classList.remove('error-red');
+  }
+  isValid &= validateInput(emailInput, validateEmail);
+  if (!isValid) {
+    delivery__form__email_error.classList.add('span__visibility__visible');
+    delivery__form__email__error_mobile.classList.add('span__visibility__visible');
+    emailInput.classList.add('error-red');
+  } else {
+    delivery__form__email_error.classList.remove('span__visibility__visible');
+    delivery__form__email__error_mobile.classList.remove('span__visibility__visible');
+    emailInput.classList.remove('error-red');
+  }
+  isValid &= validateInput(phoneInput, validatePhone);
+  if (!isValid) {
+    delivery__form__phone_error.classList.add('span__visibility__visible');
+    delivery__form__phone__error_mobile.classList.add('span__visibility__visible');
+    phoneInput.classList.add('error-red');
+  } else {
+    delivery__form__phone_error.classList.remove('span__visibility__visible');
+    delivery__form__phone__error_mobile.classList.remove('span__visibility__visible');
+    phoneInput.classList.remove('error-red');
+  }
+  isValid &= validateInput(innInput, validateInn);
+  if (!isValid) {
+    delivery__form__inn_error.classList.add('span__visibility__visible');
+    innInput.classList.add('error-red');
+  } else {
+    delivery__form__inn_error.classList.remove('span__visibility__visible');
+    innInput.classList.remove('error-red');
+  }
+
+  return isValid;
+}
+
+firstNameInput.addEventListener('input', () => {
+  updateClass(firstNameInput, delivery__form__firstName__error_mobile);
+  clearError(firstNameInput);
+  validateForm(); // Вызываем функцию валидации при каждом вводе символа
+});
+lastNameInput.addEventListener('input', () => {
+  updateClass(lastNameInput, span__lastName);
+  clearError(lastNameInput);
+  validateForm(); // Вызываем функцию валидации при каждом вводе символа
+});
+emailInput.addEventListener('input', () => {
+  updateClass(emailInput, span__email);
+  clearError(emailInput);
+  validateForm(); // Вызываем функцию валидации при каждом вводе символа
+});
+emailInput.addEventListener('input', () => {
+  updateClass(emailInput, delivery__form__email__error_mobile);
+  clearError(emailInput);
+  validateForm(); // Вызываем функцию валидации при каждом вводе символа
+});
+phoneInput.addEventListener('input', () => {
+  updateClass(phoneInput, span__phone);
+  clearError(phoneInput);
+  validateForm(); // Вызываем функцию валидации при каждом вводе символа
+});
+phoneInput.addEventListener('input', () => {
+  updateClass(phoneInput, span__phone_mobile);
+  clearError(phoneInput);
+  validateForm(); // Вызываем функцию валидации при каждом вводе символа
+});
+innInput.addEventListener('input', () => {
+  updateClass(innInput, span__inn);
+  clearError(innInput);
+  validateForm(); // Вызываем функцию валидации при каждом вводе символа
+});
+//под вопросом проверить innInput mobile
+innInput.addEventListener('input', () => {
+  updateClass(innInput, span__inn_mobile);
+  clearError(innInput);
+  validateForm(); // Вызываем функцию валидации при каждом вводе символа
+});
+
+
+
+submitButton.addEventListener('click', (event) => {
+  event.preventDefault(); // Предотвращаем стандартное поведение формы
+  const isValid = validateForm(); // Выполняем валидацию при клике
+
+  if (isValid) {
+
+    console.log('Форма валидна. Выполняем сабмит.');
+  } else {
+
+    console.log('Форма не валидна. Сабмит не выполнен.');
+  }
+});
+//////////////////////////////////////////////////////////
+submitButton.addEventListener('click', () => {
+  let isValid = true;
+
+  isValid &= validateInput(firstNameInput, (value) => true);
+  if (!isValid) {
+    delivery__form__firstName_error.classList.add('span__visibility__visible');
+    delivery__form__firstName__error_mobile.classList.add('span__visibility__visible');
+    firstNameInput.classList.add('error-red');
+  } else {
+    delivery__form__firstName_error.classList.remove('span__visibility__visible');
+    delivery__form__firstName__error_mobile.classList.remove('span__visibility__visible');
+    firstNameInput.classList.remove('error-red');
+  }
+  isValid &= validateInput(lastNameInput, (value) => true);
+  if (!isValid) {
+    delivery__form__lastName_error.classList.add('span__visibility__visible');
+    lastNameInput.classList.add('error-red');
+  } else {
+    delivery__form__lastName_error.classList.remove('span__visibility__visible');
+    lastNameInput.classList.remove('error-red');
+  }
+  isValid &= validateInput(emailInput, validateEmail);
+  if (!isValid) {
+    delivery__form__email_error.classList.add('span__visibility__visible');
+    delivery__form__email__error_mobile.classList.add('span__visibility__visible');
+    emailInput.classList.add('error-red');
+  } else {
+    delivery__form__email_error.classList.remove('span__visibility__visible');
+    delivery__form__email__error_mobile.classList.remove('span__visibility__visible');
+    emailInput.classList.remove('error-red');
+  }
+  isValid &= validateInput(phoneInput, validatePhone);
+  if (!isValid) {
+    delivery__form__phone_error.classList.add('span__visibility__visible');
+    delivery__form__phone__error_mobile.classList.add('span__visibility__visible');
+    phoneInput.classList.add('error-red');
+  } else {
+    delivery__form__phone_error.classList.remove('span__visibility__visible');
+    delivery__form__phone__error_mobile.classList.remove('span__visibility__visible');
+    phoneInput.classList.remove('error-red');
+  }
+  isValid &= validateInput(innInput, validateInn);
+  if (!isValid) {
+    delivery__form__inn_error.classList.add('span__visibility__visible');
+    innInput.classList.add('error-red');
+  } else {
+    delivery__form__inn_error.classList.remove('span__visibility__visible');
+    innInput.classList.remove('error-red');
+  }
+});
