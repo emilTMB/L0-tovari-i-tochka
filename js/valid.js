@@ -80,26 +80,41 @@ innInput.addEventListener('input', () => {
 });
 
 // ВВОД ТЕЛЕФОНА
+////////////////////////////////////////////////////////////////////////
+document.addEventListener("DOMContentLoaded", function () {
+  var eventCalllback = function (e) {
+      var el = e.target,
+      clearVal = el.dataset.phoneClear,
+      pattern = el.dataset.phonePattern,
+      matrix_def = "+7(___) ___-__-__",
+      matrix = pattern ? pattern : matrix_def,
+      i = 0,
+      def = matrix.replace(/\D/g, ""),
+      val = e.target.value.replace(/\D/g, "");
+      if (clearVal !== 'false' && e.type === 'blur') {
+          if (val.length < matrix.match(/([\_\d])/g).length) {
+              e.target.value = '';
+              return;
+          }
+      }
+      if (def.length >= val.length) val = def;
+      e.target.value = matrix.replace(/./g, function (a) {
+          return /[_\d]/.test(a) && i < val.length ? val.charAt(i++) : i >= val.length ? "" : a
+      });
+  }
+  var phone_inputs = document.querySelectorAll('[data-phone-pattern]');
+  for (let elem of phone_inputs) {
+      for (let ev of ['input', 'blur', 'focus']) {
+          elem.addEventListener(ev, eventCalllback);
+      }
+  }
+});
+////////////////////////////////////////////////////////////////////////
+
+
 phoneInput.addEventListener('input', () => {
   let inputValue = phoneInput.value;
 
-  // Удаляем все символы, кроме цифр
-  inputValue = inputValue.replace(/\D/g, '');
-
-  // Добавляем пробелы и символ "+" в соответствии с форматом
-  if (inputValue.length > 0) {
-    inputValue =
-      '+' +
-      inputValue.charAt(0) +
-      ' ' +
-      inputValue.substring(1, 4) +
-      ' ' +
-      inputValue.substring(4, 7) +
-      ' ' +
-      inputValue.substring(7, 9) +
-      ' ' +
-      inputValue.substring(9, 11);
-  }
 
   // Ограничиваем количество символов до 16 (включая символ "+")
   if (inputValue.length > 16) {
