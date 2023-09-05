@@ -223,49 +223,6 @@ function validateForm() {
   return isValid;
 }
 
-firstNameInput.addEventListener('input', () => {
-  updateClass(firstNameInput, delivery__form__firstName__error_mobile);
-  clearError(firstNameInput);
-  validateForm(); // Вызываем функцию валидации при каждом вводе символа
-});
-lastNameInput.addEventListener('input', () => {
-  updateClass(lastNameInput, span__lastName);
-  clearError(lastNameInput);
-  validateForm(); // Вызываем функцию валидации при каждом вводе символа
-});
-emailInput.addEventListener('input', () => {
-  updateClass(emailInput, span__email);
-  clearError(emailInput);
-  validateForm(); // Вызываем функцию валидации при каждом вводе символа
-});
-emailInput.addEventListener('input', () => {
-  updateClass(emailInput, delivery__form__email__error_mobile);
-  clearError(emailInput);
-  validateForm(); // Вызываем функцию валидации при каждом вводе символа
-});
-phoneInput.addEventListener('input', () => {
-  updateClass(phoneInput, span__phone);
-  clearError(phoneInput);
-  validateForm(); // Вызываем функцию валидации при каждом вводе символа
-});
-phoneInput.addEventListener('input', () => {
-  updateClass(phoneInput, span__phone_mobile);
-  clearError(phoneInput);
-  validateForm(); // Вызываем функцию валидации при каждом вводе символа
-});
-innInput.addEventListener('input', () => {
-  updateClass(innInput, span__inn);
-  clearError(innInput);
-  validateForm(); // Вызываем функцию валидации при каждом вводе символа
-});
-//под вопросом проверить innInput mobile
-innInput.addEventListener('input', () => {
-  updateClass(innInput, span__inn_mobile);
-  clearError(innInput);
-  validateForm(); // Вызываем функцию валидации при каждом вводе символа
-});
-
-
 
 submitButton.addEventListener('click', (event) => {
   event.preventDefault(); // Предотвращаем стандартное поведение формы
@@ -275,7 +232,47 @@ submitButton.addEventListener('click', (event) => {
 
     console.log('Форма валидна. Выполняем сабмит.');
   } else {
-
+    firstNameInput.addEventListener('input', () => {
+      updateClass(firstNameInput, delivery__form__firstName__error_mobile);
+      clearError(firstNameInput);
+      validateForm(); // Вызываем функцию валидации при каждом вводе символа
+    });
+    lastNameInput.addEventListener('input', () => {
+      updateClass(lastNameInput, span__lastName);
+      clearError(lastNameInput);
+      validateForm(); // Вызываем функцию валидации при каждом вводе символа
+    });
+    emailInput.addEventListener('input', () => {
+      updateClass(emailInput, span__email);
+      clearError(emailInput);
+      validateForm(); // Вызываем функцию валидации при каждом вводе символа
+    });
+    emailInput.addEventListener('input', () => {
+      updateClass(emailInput, delivery__form__email__error_mobile);
+      clearError(emailInput);
+      validateForm(); // Вызываем функцию валидации при каждом вводе символа
+    });
+    phoneInput.addEventListener('input', () => {
+      updateClass(phoneInput, span__phone);
+      clearError(phoneInput);
+      validateForm(); // Вызываем функцию валидации при каждом вводе символа
+    });
+    phoneInput.addEventListener('input', () => {
+      updateClass(phoneInput, span__phone_mobile);
+      clearError(phoneInput);
+      validateForm(); // Вызываем функцию валидации при каждом вводе символа
+    });
+    innInput.addEventListener('input', () => {
+      updateClass(innInput, span__inn);
+      clearError(innInput);
+      validateForm(); // Вызываем функцию валидации при каждом вводе символа
+    });
+    //под вопросом проверить innInput mobile
+    innInput.addEventListener('input', () => {
+      updateClass(innInput, span__inn_mobile);
+      clearError(innInput);
+      validateForm(); // Вызываем функцию валидации при каждом вводе символа
+    });
     console.log('Форма не валидна. Сабмит не выполнен.');
   }
 });
